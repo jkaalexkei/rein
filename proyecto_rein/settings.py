@@ -153,7 +153,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 LOGIN_REDIRECT_URL = 'home'
 
 STATICFILES_DIRS =[
-     os.path.join(BASE_DIR,"statics"),
+     os.path.join(BASE_DIR,"static"),
  ]
 
 # Default primary key field type
