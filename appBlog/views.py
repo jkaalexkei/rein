@@ -7,4 +7,11 @@ def blog(request):
     blogs=Blog.objects.all()#importa todas las entradas de blog
     categoria=Categorias.objects.all()
 
-    return render(request,"appBlog/blog.html",{'blogs':blogs,'categorias':categoria})
+    return render(request,"appBlog/blog.html",{
+        'blogs':blogs,
+        'categorias':categoria})
+
+def nuevaentrada(request):
+    return render(request,'appBlog/nuevaentrada.html',{
+
+    })

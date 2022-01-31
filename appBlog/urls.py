@@ -8,6 +8,7 @@ urlpatterns = [
     
     
     path('',views.blog, name='blog'),
+    path('nuevaentrada/',views.nuevaentrada,name='nuevaentrada')
    
     
 ]
