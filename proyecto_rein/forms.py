@@ -22,6 +22,8 @@ class FormRegistrarEntrada(forms.Form):
                                         'class':'form-control border border-dark',
                                         'id':'contenidoentrada',
                                         'name':'contenidoentrada',
+                                        'cols':'30',
+                                        'rows':'10',
                                         'placeholder':'Ingrese el contenido de la entrada',
                                         'style':'min-height:300px'
                                         
