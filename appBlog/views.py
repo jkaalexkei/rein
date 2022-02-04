@@ -23,9 +23,9 @@ def registrarnuevaentrada(request):
         tituloE=form_registrarnuevaentrada.cleaned_data.get('tituloEntrada')
         contenidoE=form_registrarnuevaentrada.cleaned_data.get('contenidoEntrada')
         # categoriaE=registrarnuevaentrada.cleaned_data.get('categoriasEntrada')
-        imagenE=form_registrarnuevaentrada.cleaned_data.get('imagenDestacada')
+        imagenE=form_registrarnuevaentrada.get('imagenDestacada')
 
-        nuevo=Blog.objects.create(titulo=tituloE,descripcion=contenidoE,imagen='autismo.jpg')
+        nuevo=Blog.objects.create(titulo=tituloE,descripcion=contenidoE,imagen=imagenE)
 
         if nuevo:
             nuevo.save()
