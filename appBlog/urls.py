@@ -8,9 +8,10 @@ urlpatterns = [
     
     
     path('',views.blog, name='blog'),
-    path('nuevaentrada/',views.nuevaentrada,name='nuevaentrada')
+    path('nuevaentrada/',views.registrarnuevaentrada,name='nuevaentrada')
    
     
 ]
+
 
 

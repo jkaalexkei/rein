@@ -2,10 +2,90 @@
 {% load humanize %}
 {% load static %}
 
-{% block content %}
-  <div class="row">
-      <div class="col">
-          <h2>Modulo para crear entradas en el blog</h2>
-      </div>
-  </div>
+
+
+{% block title %} Nueva Entrada {% endblock %}
+
+
+
+{% block content  %}
+
+    <form action="" method="post" class="">
+        {% csrf_token %}
+        
+        <div class="form-group my-3">
+            <label class="my-3" for="">Titulo de la Entrada:</label>
+            {{registrarnuevaentrada.tituloEntrada}}
+        </div>
+        <div class="form-group my-3">
+            <label class="my-3" for="">Contenido de la Entrada:</label>
+            {{registrarnuevaentrada.contenidoEntrada}}
+        </div>
+        <div class="form-group my-3">
+            <div class="row">
+                <div class="col-6">
+                    <label class="my-3" for="">Categorias:</label>
+                    {{registrarnuevaentrada.categoriasEntrada}}
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="customFile">Imagen:</label>
+                        <input type="file" class="custom-file-input" id="customFile" name="imagenDestacada">
+                        
+                      </div>
+
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <img class="image-fluid rounded-0" src="../../../media/blogs/autismo.jpg" alt="" width="250" height="250" name="imagenDestacada">
+                </div>
+            </div>
+            
+            
+        </div>
+            
+        <button type="submit" class="btn btn-primary bg-boton">Públicar</button>
+    </form>
+
+<!-- <div class="row d-flex">
+    <div class="col-12">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Titulo de la Entrada</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese el Titulo de Entrada">
+          </div>
+    </div>
+    <div class="col-12">
+        <label for="exampleFormControlInput1" class="form-label">Descripción</label>
+        <div class="form-floating">
+            
+            <textarea class="form-control" placeholder="Ingrese el contenido del articulo" id="floatingTextarea" style="min-height:300px;"></textarea>
+            
+        </div>
+    </div>
+    <div class="col-2 m-auto">
+        <p>Imagen Destacada:</p>
+    </div>
+    <div class="col-5 m-auto">
+        <div class="mb-3">
+            <input class="form-control" type="file" id="formFile">
+        </div>
+    </div>
+    <div class="col-5 m-auto mt-3">
+        <img class="w-100 img-fluid" src="{% static 'appRein/img/autismo.jpg' %}" alt="">
+    </div>
+    <div class="col-4 my-3">
+        <label for="exampleFormControlInput1" class="form-label">Categorias:</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Categorias</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+    </div>
+    <div class="col-12">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Palabras Claves:</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+          </div>
+    </div>
+
+</div> -->
+  
 {% endblock  %}
