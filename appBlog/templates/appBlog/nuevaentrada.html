@@ -10,39 +10,42 @@
 
 {% block content  %}
 
-    <form action="" method="post" class="">
-        {% csrf_token %}
-        
-        <div class="form-group my-3">
-            <label class="my-3" for="">Titulo de la Entrada:</label>
-            {{registrarnuevaentrada.tituloEntrada}}
-        </div>
-        <div class="form-group my-3">
-            <label class="my-3" for="">Contenido de la Entrada:</label>
-            {{registrarnuevaentrada.contenidoEntrada}}
-        </div>
-        <div class="form-group my-3">
-            <div class="row">
-                <div class="col-6">
-                    <label class="my-3" for="">Categorias:</label>
-                    {{registrarnuevaentrada.categoriasEntrada}}
-                    <div class="custom-file">
-                        <label class="custom-file-label" for="customFile">Imagen:</label>
-                        <input type="file" class="custom-file-input" id="customFile" name="imagenDestacada">
-                        
-                      </div>
+<form action="" method="post" class="" enctype="multipart/form-data">
+    {% csrf_token %}
 
-                </div>
-                <div class="col-6 d-flex justify-content-end">
-                    <img class="image-fluid rounded-0" src="../../../media/blogs/autismo.jpg" alt="" width="250" height="250" name="imagenDestacada">
+    <div class="form-group my-3">
+        <label class="my-3 fw-bold" for="">Titulo de la Entrada:</label>
+        <input type="text" class="form-control border border-dark" name="tituloe" id="tituloe"
+            placeholder="Ingrese el titulo de la entrada">
+    </div>
+    <div class="form-group my-3">
+        <label class="my-3 fw-bold" for="">Contenido de la Entrada:</label>
+        <textarea class="form-control border border-dark" name="contenidoe" id="contenidoe"
+            placeholder="Ingrese la descripción del Artículo" rows="3" style="min-height: 300px;"></textarea>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <div class="form-group my-3">
+                <label class="my-3 fw-bold" for="">Ingrese la categoria:</label>
+                <input type="text" class="form-control border border-dark" name="categoriae" id="categoriae">
+            </div>
+            <div class="form-group my-3">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label fw-bold">Seleccione la imagen de portada</label>
+                    <input class="form-control border border-dark" type="file" id="verimagen" name="imagene">
                 </div>
             </div>
-            
-            
+
         </div>
-            
-        <button type="submit" class="btn btn-primary bg-boton">Públicar</button>
-    </form>
+        <div id="imagePreview" class="col-5 d-flex flex-wrap p-0 justify-content-end">
+            <!-- <img id="imagenpreview" class="img-fluid border rounded" src="../../../media/blogs/autismo.jpg" alt="" name="imagenDestacada"> -->
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary bg-boton">Públicar</button>
+</form>
+
 
 <!-- <div class="row d-flex">
     <div class="col-12">
@@ -87,5 +90,25 @@
     </div>
 
 </div> -->
-  
+
+
+
 {% endblock  %}
+<script>
+    (function () {
+        function previsualizarimg(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').html("<img src='" + e.target.result +
+                        "' class='image-fluid rounded-0'  width='250' height='250' name='imagenDestacada'/>"
+                        );
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $('#verimagen').change(function () {
+            previsualizarimg(this);
+        });
+    })();
+</script>

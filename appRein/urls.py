@@ -7,11 +7,11 @@ from django.contrib.auth.views import LoginView,LogoutView
 
 urlpatterns = [
     
-    path('home/',views.home, name='home'),
+    path('',views.home, name='home'),
     
     # path('foro/',views.foro, name='foro'),
     path('calendario/',views.calendario, name='calendario'),
-    path('',views.iniciarsesion,name='login'),
+    path('login/',views.iniciarsesion,name='login'),
     path('cerrarsesion/',views.cerrarsesion,name='logout'),
     # path('',LoginView.as_view(template_name='appRein/login.html'),name='login'),
     # path('logout/',LogoutView.as_view(template_name='appRein/logout.html'),name='login'),

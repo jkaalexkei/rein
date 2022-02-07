@@ -29,7 +29,7 @@ class Blog(models.Model):
     descripcion=models.TextField()
     imagen=models.ImageField(upload_to='blogs',null=True,blank=True)
     autor=models.ForeignKey(User, on_delete=models.CASCADE,null=True)#establece relacion entre el post y el usuario que crea el post
-    categoria=models.ManyToManyField(Categorias)
+    categoria=models.ForeignKey(Categorias,on_delete=models.CASCADE,null=True)
     created=models.DateTimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now_add=True)
 

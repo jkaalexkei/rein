@@ -58,4 +58,4 @@ def cerrarsesion(request):
      logout(request)
      messages.success(request,'Sesión Finalizada con exito')
      print('sesion cerrada')
-     return redirect('login')
+     return redirect('home')
