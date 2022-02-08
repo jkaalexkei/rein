@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 
-# from appBlog.models import Blog #importamos los modelos de la appBlog
+# from appblog.models import blog #importamos los modelos de la appblog
 # Create your views here.
 
 def home(request):
@@ -12,7 +12,7 @@ def home(request):
 
 # def blog(request):
 
-#     blogs=Blog.objects.all()#importa todas las entradas de blog
+#     blogs=blog.objects.all()#importa todas las entradas de blog
 
 #     return render(request,"appRein/blog.html",{'blogs':blogs})
 

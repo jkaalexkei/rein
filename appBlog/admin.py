@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import Blog, Categorias #importamos el modelo de la appBlog
+from .models import blogm, categorias #importamos el modelo de la appblog
 # Register your models here.
 
-class CategoriaAdmin(admin.ModelAdmin):
+class categoriaadmin(admin.ModelAdmin):
      readonly_fields=('created','updated')
 
 
-class blogAdmin(admin.ModelAdmin):
+class blogadmin(admin.ModelAdmin):
     readonly_fields=('created','updated')
 
-admin.site.register(Blog, blogAdmin)
-admin.site.register(Categorias,CategoriaAdmin)
+admin.site.register(blogm, blogadmin)
+admin.site.register(categorias,categoriaadmin)
 

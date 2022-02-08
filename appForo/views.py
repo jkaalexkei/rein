@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from appForo.models import Foro,Categoria_foro
+from appforo.models import foro,categoria_foro
 
 # Create your views here.
 
 def foro(request):
 
-    foropublicacion=Foro.objects.all()
-    categoriaforo=Categoria_foro.objects.get(id='1')
-    entradaforo = Foro.objects.filter(categoriasforo=categoriaforo)
+    foropublicacion=foro.objects.all()
+    categoriaforo=categoria_foro.objects.get(id='1')
+    entradaforo = foro.objects.filter(categoriasforo=categoriaforo)
     
 
 
-    return render(request,"appForo/foro.html",{'foro':foropublicacion,'categoria':entradaforo})
+    return render(request,"appforo/foro.html",{'foro':foropublicacion,'categoria':entradaforo})

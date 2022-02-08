@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib import messages
-from appBlog.models import Blog, Categorias #importamos los modelos de la appBlog
+from appblog.models import blogm, categorias #importamos los modelos de la appblog
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 # from django.http import HttpResponseRedirect
@@ -10,10 +10,10 @@ from django.contrib.auth import authenticate, login,logout
 
 def blog(request):
     
-    blogs=Blog.objects.all()#importa todas las entradas de blog
-    categoria=Categorias.objects.all()
+    blogs=blogm.objects.all()#importa todas las entradas de blog
+    categoria=categorias.objects.all()
 
-    return render(request,"appBlog/blog.html",{
+    return render(request,"appblog/blog.html",{
          'blogs':blogs,
          'categorias':categoria
     })
@@ -28,16 +28,22 @@ def registrarnuevaentrada(request):
           categoriae = request.POST['categoriae']
           imagene = request.FILES['imagene']
 
-          cat = Categorias.objects.create(nombre=categoriae)
-
-          documento = Blog.objects.create(titulo=tituloe,descripcion=contenidoe,imagen=imagene,categoria=cat)
+          categ = categorias.objects.all()
+          if categoriae == categ.nombre:
+               categ.nombre = categoriae
+               categ.save()
+          else:
+               cat = categorias.objects.create(nombre=categoriae)
+               cat.save()
+          
+          documento = blogm.objects.create(titulo=tituloe,descripcion=contenidoe,imagen=imagene,categoria=cat)
           documento.save()
           if documento:
                messages.success(request,'Información Guardada')
                return redirect('blog')
           
 
-     return render(request,'appBlog/nuevaentrada.html',{})    
+     return render(request,'appblog/nuevaentrada.html',{})    
    
 #    if request.method == 'POST':
 #           usuario = request.POST.get('username')
@@ -68,7 +74,7 @@ def registrarnuevaentrada(request):
     #     # categoriaE=registrarnuevaentrada.cleaned_data.get('categoriasEntrada')
     #    # imagenE=form_registrarnuevaentrada.get('imagenDestacada')
 
-    #     nuevo=Blog.objects.create(titulo=tituloE,descripcion=contenidoE,imagen='autismo.jpg')
+    #     nuevo=blog.objects.create(titulo=tituloE,descripcion=contenidoE,imagen='autismo.jpg')
 
     #     if nuevo:
     #         nuevo.save()
@@ -81,7 +87,7 @@ def registrarnuevaentrada(request):
 
 
 
-    # return render(request,'appBlog/nuevaentrada.html',{
+    # return render(request,'appblog/nuevaentrada.html',{
 
     #     'registrarnuevaentrada': form_registrarnuevaentrada
 

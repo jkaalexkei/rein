@@ -2,7 +2,7 @@
 {% load humanize %}
 {% load static %}
 
-{% block title %} Foro ReIN {% endblock %}
+{% block title %} foro ReIN {% endblock %}
 
 {% include "appRein/cabecera.html" %}
 
@@ -11,7 +11,7 @@
   {% block content %}
   <div class="row">
       <div class="col-12 ">
-          <p class="h2 mb-3 fw-bold py-2">FORO REIN</p>
+          <p class="h2 mb-3 fw-bold py-2">foro REIN</p>
           <p class="fs-4 mb-3 py-1">Intercambiar ideas y opiniones sobre diversos temas sobre inclusión laboral</p>
       </div>
       <div class="col-5 ">
@@ -43,7 +43,7 @@
                                     
                                     {% for categ in entradaforo.categoriasforo.all  %}
 
-                                      <p class="py-3">Categoria: <span>{{categ.nombre}}</span></p>
+                                      <p class="py-3">categoria: <span>{{categ.nombre}}</span></p>
 
                                     {% endfor %}
                                 </div>

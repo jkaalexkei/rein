@@ -1,15 +1,15 @@
 from django.contrib import admin
-from . models import Categoria_foro,Foro
+from . models import categoria_foro,foro
 # Register your models here.
 
-class CategoriaForoAdmin(admin.ModelAdmin):
+class categoriaforoAdmin(admin.ModelAdmin):
     readonly_fields=('created','updated')
 
-class ForoAdmin(admin.ModelAdmin):
+class foroAdmin(admin.ModelAdmin):
     readonly_fields=('created','updated')
 
 
-admin.site.register(Categoria_foro,CategoriaForoAdmin)
-admin.site.register(Foro,ForoAdmin)
+admin.site.register(categoria_foro,categoriaforoAdmin)
+admin.site.register(foro,foroAdmin)
 
 
