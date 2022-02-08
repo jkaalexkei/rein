@@ -36,11 +36,14 @@ def iniciarsesion(request):
 
           if user:
                login(request,user)
+              
                nombreusuario=User.objects.all()
 
                for usr in nombreusuario:
                     if usr.username == usuario:
+                         request.session['usuario'] = usr.username
                          messages.success(request,'Hola {}'.format(usr.first_name))
+                         
                          return redirect ('home')
                          
                     
@@ -57,5 +60,6 @@ def cerrarsesion(request):
 
      logout(request)
      messages.success(request,'Sesión Finalizada con exito')
+     request.session['usuario'] = None
      print('sesion cerrada')
      return redirect('home')

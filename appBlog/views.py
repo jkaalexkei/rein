@@ -22,25 +22,35 @@ def blog(request):
 
 def registrarnuevaentrada(request):
 
+     # sesionusuario = request.session.get('usuario')
+     # print(sesionusuario)
+
      if request.method == 'POST':
           tituloe = request.POST['tituloe']
           contenidoe = request.POST['contenidoe']
           categoriae = request.POST['categoriae']
           imagene = request.FILES['imagene']
 
-          categ = categorias.objects.all()
-          if categoriae == categ.nombre:
-               categ.nombre = categoriae
-               categ.save()
+          category=categorias.objects.filter(nombre=categoriae).exists()
+          if category:               
+               catg = categorias.objects.get(nombre=categoriae)
+               catg.nombre=categoriae
+               catg.save()
+               documento = blogm.objects.create(titulo=tituloe,descripcion=contenidoe,imagen=imagene,categoria=catg)
+               documento.save()
+               if documento:
+                    messages.success(request,'Información Guardada')
+                    return redirect('blog')
           else:
                cat = categorias.objects.create(nombre=categoriae)
                cat.save()
-          
-          documento = blogm.objects.create(titulo=tituloe,descripcion=contenidoe,imagen=imagene,categoria=cat)
-          documento.save()
-          if documento:
-               messages.success(request,'Información Guardada')
-               return redirect('blog')
+
+               documento = blogm.objects.create(titulo=tituloe,descripcion=contenidoe,imagen=imagene,categoria=cat)
+               documento.save()
+
+               if documento:
+                    messages.success(request,'Información Guardada')
+                    return redirect('blog')
           
 
      return render(request,'appblog/nuevaentrada.html',{})    
