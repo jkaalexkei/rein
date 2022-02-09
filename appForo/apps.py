@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class appforoConfig(AppConfig):
+class AppForoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'appforo'
