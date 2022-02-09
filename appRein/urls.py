@@ -13,8 +13,8 @@ urlpatterns = [
     path('calendario/',views.calendario, name='calendario'),
     path('login/',views.iniciarsesion,name='login'),
     path('cerrarsesion/',views.cerrarsesion,name='logout'),
-    # path('',LoginView.as_view(template_name='appRein/login.html'),name='login'),
-    # path('logout/',LogoutView.as_view(template_name='appRein/logout.html'),name='login'),
+    # path('',LoginView.as_view(template_name='apprein/login.html'),name='login'),
+    # path('logout/',LogoutView.as_view(template_name='apprein/logout.html'),name='login'),
     
 ]
 #Agregamos la url de las imagenes para indicarle al panel de administracion de django donde estan las imagenes

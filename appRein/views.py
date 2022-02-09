@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login,logout
 
 def home(request):
 
-    return render(request,"appRein/home.html")
+    return render(request,"apprein/home.html")
 
 # def blog(request):
 
@@ -21,7 +21,7 @@ def home(request):
 #      return render(request,"appRein/foro.html")
 
 def calendario(request):
-     return render(request,"appRein/calendario.html")
+     return render(request,"apprein/calendario.html")
 
 def iniciarsesion(request):
 
