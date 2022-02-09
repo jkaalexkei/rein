@@ -18,6 +18,7 @@ class categorias(models.Model):
     
         verbose_name='categoria'
         verbose_name_plural='categorias'
+        
     
     
 
@@ -38,6 +39,7 @@ class blogm(models.Model):
 
         verbose_name='blogm'
         verbose_name_plural='blogms'
+        ordering = ['-created']
     
     def __str__(self):
         return self.titulo
