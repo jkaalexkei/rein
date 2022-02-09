@@ -26,13 +26,13 @@
                   </li>
                   <li class="nav-item mx-4 item rounded-1 {% if request.path == '/appblog/nuevaentrada' %}active{% endif %}">
                     <div class="dropdown">
-                      <button class="btn btn-secondary bg-boton-categoria dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <button class="btn btn-secondary bg-boton-categoria dropdown-toggle text-white fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Acciones
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="nav-link bg-boton-categoria item" href="{% url 'nuevaentrada' %}">Crear Entrada</a></li>
-                        <li><a class="nav-link bg-boton-categoria item" href="#">Modificar Entrada</a></li>
-                        <li><a class="nav-link bg-boton-categoria item" href="#">Eliminar Entrada</a></li>
+                        <li><a class="nav-link bg-boton-categoria item text-white fw-bold border-bottom border-white" href="{% url 'nuevaentrada' %}">Crear Entrada</a></li>
+                        <li><a class="nav-link bg-boton-categoria item text-white fw-bold border-bottom border-white" href="#">Modificar Entrada</a></li>
+                        <li><a class="nav-link bg-boton-categoria item text-white fw-bold" href="#">Eliminar Entrada</a></li>
                       </ul>
                     </div>
                     
