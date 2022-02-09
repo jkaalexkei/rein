@@ -25,9 +25,7 @@ SECRET_KEY = 'django-insecure-x2qnpfzser0(zq^6((=%@u^-+1czs=xn-^*e0o+z)!)^zd@bz9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
-# DEBUG = bool(os.environ.get('DEBUG',False))
-
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appRein',
+    'apprein',
     'appblog',
     'appforo',
 ]
@@ -55,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'proyecto_rein.urls'
@@ -82,20 +80,20 @@ WSGI_APPLICATION = 'proyecto_rein.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-import dj_database_url 
-from decouple import config
-
 DATABASES = {
-     'default': dj_database_url.config(
-         default=config('DATABASE_URL')
-     )
- }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+# import dj_database_url 
+# from decouple import config
+
+# DATABASES = {
+#      'default': dj_database_url.config(
+#          default=config('DATABASE_URL')
+#      )
+#  }
 
 # DATABASES = {
 #      'default': {
@@ -158,12 +156,12 @@ STATICFILES_DIRS =[
      os.path.join(BASE_DIR,"static"),
  ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#https://www.youtube.com/watch?v=_pMYOdxRcDY ---> tutorial deploy
+
 
